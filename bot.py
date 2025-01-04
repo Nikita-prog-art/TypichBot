@@ -32,10 +32,17 @@ def echo_message(message: telebot.types.Message):
         "role": message.from_user.first_name,
         "content" : message.text
         })
-    bot.reply_to(message, ai.chat.completions.create(
+    print(message.text)
+    ans = ai.chat.completions.create(
         messages=lst,
         model="1"
-        ).choices[0].message.content)
+        ).choices[0].message.content
+    print(ans)
+    lst.append({
+        "role" : "assistant",
+        "content" : ans
+    })
+    bot.reply_to(message, ans, parse_mode="markdown")
 
 
 bot.infinity_polling()
