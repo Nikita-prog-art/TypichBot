@@ -1,0 +1,1 @@
+./llama-server -m Vikhr-Qwen-2.5-0.5B-instruct-Q5_K_M.gguf --temp 0.3 --no-webui

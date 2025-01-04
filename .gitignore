@@ -1,3 +1,7 @@
+llama-server
+Vikhr-*
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
