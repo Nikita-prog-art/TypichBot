@@ -1,12 +1,15 @@
 import telebot
 import openai
+from subprocess import Popen
+
+Popen(["sh", "-c", "./llama-start.sh"])
 
 API_TOKEN = open(".env").readline()
 
 bot = telebot.TeleBot(API_TOKEN)
 
 ai = openai.OpenAI(
-    base_url="http://localhost:8080/v1",
+    base_url="http://localhost:1234/v1",
     api_key="123"
     )
 
@@ -29,7 +32,8 @@ def reset(message):
 def echo_message(message: telebot.types.Message):
     global lst
     lst.append({
-        "role": message.from_user.first_name,
+        #"role": message.from_user.first_name,
+        "role": "user",
         "content" : message.text
         })
     print(message.text)
